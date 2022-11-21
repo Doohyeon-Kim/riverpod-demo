@@ -1,3 +1,7 @@
-class Counter{
-  int? count;
+class Counter {
+  late int count;
+
+  Counter() {
+    count = 0;
+  }
 }
