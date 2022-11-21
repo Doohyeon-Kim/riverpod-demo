@@ -3,29 +3,25 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'counter.dart';
 
-// final counterProvider = StateProvider<Counter>((ref) => Counter());
+final counterProvider = StateNotifierProvider<CounterViewModel, Counter>(
+    (ref) => CounterViewModel());
 
+class CounterViewModel extends StateNotifier<Counter> {
+  CounterViewModel() : super(Counter());
 
-final counterProvider = ChangeNotifierProvider<CounterNotifier>((ref) => CounterNotifier());
+  void increment() {
+    state = Counter(count: state.count);
+  }
+}
 
-class CounterNotifier extends ChangeNotifier {
-  final Counter counter = Counter();
+final counterProvider2 = ChangeNotifierProvider<CounterChangeNotifier>(
+    (ref) => CounterChangeNotifier());
+
+class CounterChangeNotifier extends ChangeNotifier {
+  final CounterCNP counter = CounterCNP();
+
   void increment() {
     counter.count += 1;
     notifyListeners();
   }
 }
-
-// final counterViewModel = StateNotifierProvider<CounterViewModel, Counter>((ref) {
-//   return CounterViewModel(ref);
-// });
-//
-// class CounterViewModel extends StateNotifier<Counter> {
-//   CounterViewModel(this.ref): super(Counter());
-//
-//   final Ref ref;
-//
-//   void increment(){
-//     ref.read(counterViewModel).count = ref.read(counterViewModel).count! + 1;
-//   }
-// }
