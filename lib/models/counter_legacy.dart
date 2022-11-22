@@ -1,13 +1,13 @@
 import 'package:flutter/foundation.dart';
 
 @immutable
-class Counter {
-  const Counter({required this.count});
+class CounterPure {
+  const CounterPure({required this.count});
 
   final int count;
 
-  Counter copyWith({int? count}) {
-    return Counter(count: count ?? this.count);
+  CounterPure copyWith({int? count}) {
+    return CounterPure(count: count ?? this.count);
   }
 }
 

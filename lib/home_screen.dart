@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:riverpod_test/count_view.dart';
+import 'package:riverpod_demo/count_view.dart';
 
 
 class HomeScreen extends StatelessWidget {
@@ -10,7 +10,7 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Riverpod Test"),
+        title: const Text("Riverpod Demo"),
       ),
       body: Center(
         child: Column(
@@ -25,6 +25,7 @@ class HomeScreen extends StatelessWidget {
             ),
             const CountView(),
             const CountView2(),
+            const CountView3(),
           ],
         ),
       ),
