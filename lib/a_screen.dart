@@ -12,7 +12,7 @@ class AScreen extends StatelessWidget {
           onPressed: () {
             context.pop();
           },
-          child: Text('go back'),
+          child: const Text('go back'),
         ),
       ),
     );

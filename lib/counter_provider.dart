@@ -3,14 +3,14 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'counter.dart';
 
-final counterProvider = StateNotifierProvider<CounterViewModel, Counter>(
-    (ref) => CounterViewModel());
+final counterProvider =
+    StateNotifierProvider<CounterNotifier, Counter>((ref) => CounterNotifier());
 
-class CounterViewModel extends StateNotifier<Counter> {
-  CounterViewModel() : super(Counter());
+class CounterNotifier extends StateNotifier<Counter> {
+  CounterNotifier() : super(const Counter(count: 0));
 
   void increment() {
-    state = Counter(count: state.count);
+    state = state.copyWith(count: state.count + 1);
   }
 }
 

@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_test/counter.dart';
-import 'package:riverpod_test/counter_view_model.dart';
+import 'package:riverpod_test/counter_provider.dart';
 
 
 class CountView extends ConsumerWidget {
   const CountView({Key? key}) : super(key: key);
-
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    Counter counter = ref.watch(counterProvider);
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Text("Count: ${ref.watch(counterProvider).count}"),
+        Text("Count: ${counter.count}"),
         const SizedBox(
           width: 10,
         ),

@@ -2,11 +2,13 @@ import 'package:flutter/foundation.dart';
 
 @immutable
 class Counter {
-  Counter({int count = 0}) {
-    count = count;
-  }
+  const Counter({required this.count});
 
-  late final int count;
+  final int count;
+
+  Counter copyWith({int? count}) {
+    return Counter(count: count ?? this.count);
+  }
 }
 
 class CounterCNP {
